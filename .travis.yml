@@ -1,0 +1,39 @@
+language: cpp
+compiler:
+  #  - gcc
+  - clang
+before_install:
+  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+  - sudo apt-get -qq update
+  - sudo apt-get install git \
+    gcc \
+    g++ \
+    libpcre3-dev \
+    libcunit1-dev \
+    libev-dev \
+    libjansson-dev \
+    libjemalloc-dev \
+    cython \
+    make \
+    binutils \
+    autoconf \
+    automake \
+    autotools-dev \
+    libtool \
+    pkg-config \
+    zlib1g-dev \
+    libssl-dev \
+    libxml2-dev \
+    libevent-dev \
+    python3.4-dev \
+    libevent-openssl-2.0-5
+install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
+  - autoreconf -i
+  - automake
+  - autoconf
+  - ./configure --enable-sandbox
+  - make
+  - make install
+script:
+  - make test
