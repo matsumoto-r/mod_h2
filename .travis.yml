@@ -5,7 +5,7 @@ compiler:
 before_install:
   - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
   - sudo apt-get -qq update
-  - sudo apt-get install git
+  - sudo apt-get install --no-install-recommends -qq git
     gcc
     g++
     libpcre3-dev
