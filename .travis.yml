@@ -26,13 +26,13 @@ before_install:
     libxml2-dev
     libevent-dev
     libevent-openssl-2.0-5
-install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
+before_script:
   - autoreconf -i
   - automake
   - autoconf
   - ./configure --enable-sandbox
+script:
   - make
   - make install
-script:
   - make test
