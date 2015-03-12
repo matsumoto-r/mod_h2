@@ -7,7 +7,8 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install --no-install-recommends -qq git
     gcc
-    g++
+    g++-4.8
+    libstdc++-4.8-dev
     libpcre3-dev
     libcunit1-dev
     libev-dev
@@ -26,7 +27,7 @@ before_install:
     libxml2-dev
     libevent-dev
     libevent-openssl-2.0-5
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 before_script:
   - autoreconf -i
   - automake
