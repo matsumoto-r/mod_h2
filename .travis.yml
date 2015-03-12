@@ -18,6 +18,7 @@ before_install:
     make
     binutils
     autoconf
+    m4
     automake
     autotools-dev
     libtool
