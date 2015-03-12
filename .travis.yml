@@ -26,7 +26,6 @@ before_install:
     libssl-dev
     libxml2-dev
     libevent-dev
-    python3.4-dev
     libevent-openssl-2.0-5
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
